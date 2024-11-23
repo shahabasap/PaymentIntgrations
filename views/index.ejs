@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form action="/checkout" method="POST">
+            <!-- User Information -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="johndoe@example.com" required>
+            </div>
+
+            <!-- Shipping Address -->
+            <h2>Shipping Address</h2>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="shippingAddress[fullName]" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="addressLine1">Address Line 1:</label>
+                <input type="text" id="addressLine1" name="shippingAddress[addressLine1]" value="123 Main St" required>
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address Line 2:</label>
+                <input type="text" id="addressLine2" name="shippingAddress[addressLine2]" value="Apt 4B" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="shippingAddress[city]" value="Metropolis" required>
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" id="postalCode" name="shippingAddress[postalCode]" value="12345" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="shippingAddress[country]" value="Wonderland" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="shippingAddress[phone]" value="555-1234" required>
+            </div>
+
+            <!-- Product Details -->
+            <h2>Product Details</h2>
+            <input type="hidden" name="product[product]" value="604c1f4f1f4e4a5e9b8b4567"> <!-- Sample Product ID -->
+            <input type="hidden" name="product[variant]" value="605c1f4f1f4e4a5e9b8b1234"> <!-- Sample Variant ID -->
+            <input type="hidden" name="product[quantity]" value="1">
+
+            <!-- Payment Details -->
+            <div class="form-group">
+                <label for="currency">Currency:</label>
+                <input type="text" id="currency" name="currency" value="INR" readonly>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" value="1000" readonly>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="COD">Cash on Delivery</option>
+                    <option value="Razorpay">Razorpay</option>
+                    <option value="Stripe">Stripe</option>
+                </select>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>
